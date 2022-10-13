@@ -1,17 +1,17 @@
 import { Request, Response } from 'express';
-import ProductService from '../services/product.service';
+import ProdutoS from '../services/produtoS';
 import statusCodes from '../utils/statusCodes';
 
 class ProductsController {
-  private service: ProductService;
+  private service: ProdutoS;
 
   constructor() {
-    this.service = new ProductService();
+    this.service = new ProdutoS();
   }
 
   public create = async (req: Request, res: Response) => {
-    const newProduct = await this.service.create(req.body);
-    res.status(statusCodes.CREATED).json(newProduct);
+    const produtoNovo = await this.service.create(req.body);
+    res.status(statusCodes.CREATED).json(produtoNovo);
   };
 
   public getAll = async (_req: Request, res: Response) => {
