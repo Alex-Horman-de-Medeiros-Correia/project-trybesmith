@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
-import UserService from '../services/user.service';
+import ServiceU from '../services/serviceU';
 import statusCodes from '../utils/statusCodes';
 
-class UserController {
-  private service: UserService;
+class ControllerU {
+  private service: ServiceU;
 
   constructor() {
-    this.service = new UserService();
+    this.service = new ServiceU();
   }
 
   public create = async (req: Request, res: Response) => {
@@ -15,4 +15,4 @@ class UserController {
   };
 }
 
-export default new UserController();
+export default new ControllerU();

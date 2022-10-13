@@ -1,9 +1,9 @@
-import UserModel from '../models/user.model';
+import UserModel from '../models/modelU';
 import connection from '../models/connection';
-import { IUser } from '../interfaces/user.interface';
+import { IUser } from '../interfaces/interfaceU';
 import { createToken } from '../utils/JWT';
 
-class UserService {
+class ServiceU {
   private model: UserModel;
 
   constructor() {
@@ -11,11 +11,11 @@ class UserService {
   }
 
   public async create(user: IUser): Promise<string> {
-    const newUser = await this.model.create(user);
-    const token = createToken(newUser);
+    const novoUser = await this.model.create(user);
+    const token = createToken(novoUser);
 
     return token;
   }
 }
 
-export default UserService;
+export default ServiceU;
